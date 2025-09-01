@@ -109,7 +109,7 @@ export const MENU_STRUCTURE = [
     items: [
       { id: 'piani-provvigionali', title: 'Piani Provvigionali', status: 'complete' },
       { id: 'fornitori', title: 'Fornitori', status: 'complete' },
-      { id: 'listini-offerte', title: 'Listini e Offerte', status: 'planned' },
+      { id: 'listini-offerte', title: 'Listini e Offerte', status: 'complete' },
       { id: 'collaboratori', title: 'Collaboratori', status: 'planned' },
       { id: 'rc-inviti-fatturare', title: 'Inviti a Fatturare', status: 'planned' },
       { id: 'leads', title: 'Leads', status: 'in-progress' },
