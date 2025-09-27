@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Agency } from './types/agency';
 import Button from "./components/ui/Button";
 import { Card, CardContent } from "./components/ui/Card";
 import Header from './components/ui/Header';
@@ -94,5 +93,6 @@ function App() {
 }
 
 export default App;
+
 
 
