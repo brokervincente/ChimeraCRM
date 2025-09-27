@@ -26,7 +26,6 @@ function App() {
   const handleSaveProfile = (newProfile: Agency) => {
     setAgency(newProfile);
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newProfile));
-    // eventuale futura integrazione API aggiornamento
   };
 
   return (
