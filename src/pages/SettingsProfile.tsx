@@ -1,7 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 
-const SettingsProfile = ({ agencyData, onSave }) => {
-  const [form, setForm] = useState({
+type Agency = {
+  title: string;
+  contacts: string;
+  logoUrl: string | ArrayBuffer | null;
+  logoCircular: boolean;
+};
+
+type ProfileProps = {
+  agencyData: Agency;
+  onSave: (data: Agency) => void;
+};
+
+const SettingsProfile: React.FC<ProfileProps> = ({ agencyData, onSave }) => {
+  const [form, setForm] = useState<Agency>({
     title: '',
     contacts: '',
     logoUrl: '',
@@ -12,7 +24,7 @@ const SettingsProfile = ({ agencyData, onSave }) => {
     if (agencyData) setForm(agencyData);
   }, [agencyData]);
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type, checked } = e.target;
     setForm((prev) => ({
       ...prev,
@@ -20,8 +32,8 @@ const SettingsProfile = ({ agencyData, onSave }) => {
     }));
   };
 
-  const handleLogoUpload = (e) => {
-    const file = e.target.files[0];
+  const handleLogoUpload = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files && e.target.files[0];
     if (!file) return;
 
     const reader = new FileReader();
@@ -31,7 +43,7 @@ const SettingsProfile = ({ agencyData, onSave }) => {
     reader.readAsDataURL(file);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSave(form);
   };
@@ -77,7 +89,7 @@ const SettingsProfile = ({ agencyData, onSave }) => {
         {form.logoUrl && (
           <div style={{ marginTop: 10 }}>
             <img
-              src={form.logoUrl}
+              src={form.logoUrl as string}
               alt="Preview Logo"
               style={{
                 width: 100,
@@ -95,4 +107,3 @@ const SettingsProfile = ({ agencyData, onSave }) => {
 };
 
 export default SettingsProfile;
-
