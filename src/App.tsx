@@ -6,15 +6,7 @@ import Header from './components/ui/Header';
 import SettingsProfile from './pages/SettingsProfile';
 import { Agency } from './types/agency';
 
-
 const LOCAL_STORAGE_KEY = 'agency_profile_data';
-
-type Agency = {
-  title: string;
-  contacts: string;
-  logoUrl: string;
-  logoCircular: boolean;
-};
 
 function App() {
   const [agency, setAgency] = useState<Agency>({
@@ -95,7 +87,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
