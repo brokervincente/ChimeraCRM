@@ -3,7 +3,7 @@ import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 type Agency = {
   title: string;
   contacts: string;
-  logoUrl: string | ArrayBuffer | null;
+  logoUrl: string | null;
   logoCircular: boolean;
 };
 
@@ -16,7 +16,7 @@ const SettingsProfile: React.FC<ProfileProps> = ({ agencyData, onSave }) => {
   const [form, setForm] = useState<Agency>({
     title: '',
     contacts: '',
-    logoUrl: '',
+    logoUrl: null,
     logoCircular: false,
   });
 
@@ -25,7 +25,8 @@ const SettingsProfile: React.FC<ProfileProps> = ({ agencyData, onSave }) => {
   }, [agencyData]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, type, checked } = e.target;
+    const target = e.target as HTMLInputElement;
+    const { name, value, type, checked } = target;
     setForm((prev) => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value,
@@ -38,7 +39,7 @@ const SettingsProfile: React.FC<ProfileProps> = ({ agencyData, onSave }) => {
 
     const reader = new FileReader();
     reader.onloadend = () => {
-      setForm((prev) => ({ ...prev, logoUrl: reader.result }));
+      setForm((prev) => ({ ...prev, logoUrl: reader.result as string | null }));
     };
     reader.readAsDataURL(file);
   };
@@ -89,7 +90,7 @@ const SettingsProfile: React.FC<ProfileProps> = ({ agencyData, onSave }) => {
         {form.logoUrl && (
           <div style={{ marginTop: 10 }}>
             <img
-              src={form.logoUrl as string}
+              src={form.logoUrl}
               alt="Preview Logo"
               style={{
                 width: 100,
