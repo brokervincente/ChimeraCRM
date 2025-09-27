@@ -1,7 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Header = ({ agency }) => {
+type Agency = {
+  logoUrl?: string;
+  logoCircular?: boolean;
+};
+
+type HeaderProps = {
+  agency: Agency;
+};
+
+const Header: React.FC<HeaderProps> = ({ agency }) => {
   const navigate = useNavigate();
 
   const handleProfileClick = () => {
