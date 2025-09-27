@@ -1,5 +1,5 @@
-declare module './Header' {
-  import React from 'react';
-  const Header: React.FC<{agency: any}>;
-  export default Header;
-}
+import React from 'react';
+
+declare const Header: React.FC<{ agency: any }>;
+
+export default Header;
