@@ -31,10 +31,10 @@ function App() {
   return (
     <BrowserRouter>
       <Header agency={agency} />
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-white text-black">
         <aside className="fixed left-0 top-0 h-full w-64 bg-white shadow hidden md:block">
-          <div className="p-4 text-xl font-bold">Chimera CRM</div>
-          <nav className="p-2 space-y-1 text-sm">
+          <div className="p-4 text-xl font-bold" style={{ color: 'black' }}>Chimera CRM</div>
+          <nav className="p-2 space-y-1 text-sm" style={{ color: 'black' }}>
             <a className="block px-4 py-2 hover:bg-gray-100 rounded" href="#">Dashboard</a>
             <a className="block px-4 py-2 hover:bg-gray-100 rounded" href="#">Fornitori</a>
             <a className="block px-4 py-2 hover:bg-gray-100 rounded" href="#">Listini & Offerte</a>
@@ -48,7 +48,7 @@ function App() {
           <Routes>
             <Route path="/" element={
               <>
-                <h1 className="text-3xl font-bold mb-6">Dashboard</h1>
+                <h1 style={{ color: 'black' }} className="text-3xl font-bold mb-6">Dashboard</h1>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <Card>
                     <CardContent>
