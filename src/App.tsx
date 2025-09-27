@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Button from "./components/ui/Button";
 import { Card, CardContent } from "./components/ui/Card";
-import Header from './components/Header';
+import Header from './components/ui/Header';
 import SettingsProfile from './pages/SettingsProfile';
 
 
@@ -93,4 +93,5 @@ function App() {
 }
 
 export default App;
+
 
