@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Agency } from '../../types/agency';
 
 
 type Agency = {
@@ -38,4 +37,5 @@ const Header: React.FC<HeaderProps> = ({ agency }) => {
 };
 
 export default Header;
+
 
