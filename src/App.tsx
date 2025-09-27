@@ -1,6 +1,49 @@
 import React from "react";
 import Button from "./components/ui/Button";
 import { Card, CardContent } from "./components/ui/Card";
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import SettingsProfile from './pages/SettingsProfile';
+
+const LOCAL_STORAGE_KEY = 'agency_profile_data';
+
+function App() {
+  const [agency, setAgency] = useState({
+    title: '',
+    contacts: '',
+    logoUrl: '',
+    logoCircular: false,
+  });
+
+  useEffect(() => {
+    const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (saved) {
+      setAgency(JSON.parse(saved));
+    }
+  }, []);
+
+  const handleSaveProfile = (newProfile) => {
+    setAgency(newProfile);
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newProfile));
+    // qui in futuro integrazione aggiornamento jsonbin.io API
+  };
+
+  return (
+    <BrowserRouter>
+      <Header agency={agency} />
+      <Routes>
+        {/* altre rotte */}
+        <Route
+          path="/settings/profile"
+          element={<SettingsProfile agencyData={agency} onSave={handleSaveProfile} />}
+        />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
 
 export default function App() {
   return (
@@ -49,3 +92,4 @@ export default function App() {
     </div>
   );
 }
+
