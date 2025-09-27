@@ -12,7 +12,7 @@ function App() {
   const [agency, setAgency] = useState<Agency>({
     title: '',
     contacts: '',
-    logoUrl: '',
+    logoUrl: undefined,
     logoCircular: false,
   });
 
