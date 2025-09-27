@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Aggiungi qui eventuali stili globali personalizzati */
+
+
+/* Aggiungi qui eventuali stili globali personalizzati */
+
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -47,4 +53,5 @@ body {
   @apply bg-gray-100 text-gray-800;
   margin: 0;
 }
+
 
