@@ -1,5 +1,5 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
-import { Agency } from './types/agency';
+import { Agency } from '../types/agency';
 
 type Agency = {
   title: string;
@@ -109,4 +109,5 @@ const SettingsProfile: React.FC<ProfileProps> = ({ agencyData, onSave }) => {
 };
 
 export default SettingsProfile;
+
 
