@@ -4,6 +4,8 @@ import Button from "./components/ui/Button";
 import { Card, CardContent } from "./components/ui/Card";
 import Header from './components/ui/Header';
 import SettingsProfile from './pages/SettingsProfile';
+import { Agency } from './types/agency';
+
 
 const LOCAL_STORAGE_KEY = 'agency_profile_data';
 
@@ -93,6 +95,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
