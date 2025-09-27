@@ -1,11 +1,5 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
-
-type Agency = {
-  title: string;
-  contacts: string;
-  logoUrl: string | null;
-  logoCircular: boolean;
-};
+import { Agency } from '../types/agency';
 
 type ProfileProps = {
   agencyData: Agency;
@@ -16,7 +10,7 @@ const SettingsProfile: React.FC<ProfileProps> = ({ agencyData, onSave }) => {
   const [form, setForm] = useState<Agency>({
     title: '',
     contacts: '',
-    logoUrl: null,
+    logoUrl: undefined,
     logoCircular: false,
   });
 
@@ -108,6 +102,3 @@ const SettingsProfile: React.FC<ProfileProps> = ({ agencyData, onSave }) => {
 };
 
 export default SettingsProfile;
-
-
-
