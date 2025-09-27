@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import Button from "./components/ui/Button";
 import { Card, CardContent } from "./components/ui/Card";
 import Header from './components/ui/Header';
 import SettingsProfile from './pages/SettingsProfile';
 
-
 const LOCAL_STORAGE_KEY = 'agency_profile_data';
 
+type Agency = {
+  title: string;
+  contacts: string;
+  logoUrl: string;
+  logoCircular: boolean;
+};
+
 function App() {
-  const [agency, setAgency] = useState({
+  const [agency, setAgency] = useState<Agency>({
     title: '',
     contacts: '',
     logoUrl: '',
@@ -23,10 +30,10 @@ function App() {
     }
   }, []);
 
-  const handleSaveProfile = (newProfile: any) => {
+  const handleSaveProfile = (newProfile: Agency) => {
     setAgency(newProfile);
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newProfile));
-    // qui in futuro integrazione aggiornamento jsonbin.io API
+    // eventuale futura integrazione API aggiornamento
   };
 
   return (
@@ -47,11 +54,9 @@ function App() {
 
         <main className="md:ml-64 p-6">
           <Routes>
-            {/* Default Dashboard */}
             <Route path="/" element={
               <>
                 <h1 className="text-3xl font-bold mb-6">Dashboard</h1>
-
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <Card>
                     <CardContent>
@@ -60,7 +65,6 @@ function App() {
                       <Button className="mt-3">Vai</Button>
                     </CardContent>
                   </Card>
-
                   <Card>
                     <CardContent>
                       <h2 className="text-lg font-semibold">Contratti</h2>
@@ -68,7 +72,6 @@ function App() {
                       <Button className="mt-3">Vai</Button>
                     </CardContent>
                   </Card>
-
                   <Card>
                     <CardContent>
                       <h2 className="text-lg font-semibold">Listini & Provvigioni</h2>
@@ -79,8 +82,6 @@ function App() {
                 </div>
               </>
             }/>
-
-            {/* Pagina Profilo */}
             <Route
               path="/settings/profile"
               element={<SettingsProfile agencyData={agency} onSave={handleSaveProfile} />}
@@ -93,5 +94,3 @@ function App() {
 }
 
 export default App;
-
-
