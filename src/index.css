@@ -2,54 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Aggiungi qui eventuali stili globali personalizzati */
-
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #005a87;
-  padding: 10px 20px;
-  color: white;
-}
-.user-icon {
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-}
-.logo {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-}
-.logo.circular {
-  border-radius: 50%;
-}
-.logo.square {
-  border-radius: 8px;
-}
-.default-icon {
-  width: 40px;
-  height: 40px;
-  background-color: #0d7fc8;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 1.2em;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-:root {
-  color-scheme: light;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  @apply bg-gray-100 text-gray-800;
-  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-
-
+#root {
+  min-height: 100vh;
+}
